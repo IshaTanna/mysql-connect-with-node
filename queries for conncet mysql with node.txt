@@ -1,0 +1,35 @@
+module not found in the query 
+
+after solving the query 
+
+try
+code - 1
+connection.query('SELECT * FROM your_table_name', (error, results, fields) => {
+    if (error) {
+        console.error('Error executing query: ', error);
+        return;
+    }
+    console.log('Query results: ', results);
+});
+
+code - 2
+const {
+    createPool
+ } = require('mysql');
+
+ const pool = createPool({
+    host:"localhost",
+    user:"root",
+    password:"",
+    database:"test",
+    connectionLimit:"10"
+ })
+
+ pool.query('select * from student' , (err, result, fields)=>{
+    if(err) {
+        return console.log(err);
+
+    }
+    return console.log(result);
+ })
+ 
